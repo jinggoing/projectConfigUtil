@@ -1,0 +1,23 @@
+{
+  "name": "pcu",
+  "version": "1.0.0",
+  "description": "车载项目的配置文件修改工具",
+  "main": "index.js",
+  "scripts": {
+    "test": "dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jinggoing/projectConfigUtil.git"
+  },
+  "keywords": [
+    "config",
+    "params"
+  ],
+  "author": "jinggoing",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jinggoing/projectConfigUtil/issues"
+  },
+  "homepage": "https://github.com/jinggoing/projectConfigUtil#readme"
+}
