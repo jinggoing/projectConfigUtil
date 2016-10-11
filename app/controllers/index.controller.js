@@ -3,7 +3,7 @@
 * @Author: jinggoing
 * @Date:   2016-10-11 10:53:21
 * @Last Modified by:   jinxiong.hou
-* @Last Modified time: 2016-10-11 16:30:21
+* @Last Modified time: 2016-10-11 17:07:06
 */
 
 var multiparty = require('multiparty');
@@ -31,31 +31,29 @@ module.exports = {
 	    form.maxFilesSize = 2 * 1024 * 1024;
 	    //form.maxFields = 1000;  设置所以文件的大小总和
 
-	    form.on('part', function(part) {
-		  // You *must* act on the part by reading it 
-		  // NOTE: if you want to ignore it, just call "part.resume()" 
-		  if (!part.filename) {
-		    // filename is not defined when this is a field and not a file 
-		    console.log('got field named ' + part.name);
-		    // ignore field's content 
-		    part.resume();
-		  }
-		 
-		  if (part.filename) {
-		    // filename is defined when this is a file 
-		    count++;
-		    console.log('got file named ' + part.name);
-		    // ignore file's content here 
-		    part.resume();
-		  }
-		});
-		form.on('close', function() {
-		  console.log('Upload completed!');
-		  res.writeHead(200, {'content-type': 'text/plain'});
-		  res.end('Received ' + count + ' files');
-		});
-		
-	    form.parse(req);
+	    form.parse(req, function(err, fields, files) {
+	      var filesTmp = JSON.stringify(files,null,2);
+	  
+	      if(err){
+	        console.log('parse error: ' + err);
+	      } else {
+	        console.log(files);
+	        var inputFile = files.upload[0];
+	        var uploadedPath = inputFile.path;
+	        var dstPath = './uploads/' + inputFile.originalFilename;
+	        //重命名为真实文件名
+	        fs.rename(uploadedPath, dstPath, function(err) {
+	          if(err){
+	            console.log('rename error: ' + err);
+	          } else {
+	            console.log('rename ok');
+	          }
+	        });
+	      }
+	      res.writeHead(200, {'content-type': 'text/plain;charset=utf-8'});
+	      res.write('received upload:\n\n');
+	      res.end(util.inspect({fields: fields, files: filesTmp}));
+	   });
 	  }
 	},
 	//解压
