@@ -3,17 +3,18 @@
 * @Author: jinggoing
 * @Date:   2016-10-11 10:53:21
 * @Last Modified by:   jinxiong.hou
-* @Last Modified time: 2016-10-11 17:07:06
+* @Last Modified time: 2016-10-11 17:31:01
 */
 
 var multiparty = require('multiparty');
 var http = require('http');
 var util = require('util');
-var fs = require('fs')
+var fs = require('fs');
 var fr = require('./folderRead.js');
 var JSZip = require('jszip');
 var zip = JSZip();
 var unzip =require('unzip');
+var df = require('./deleteFolder.js')
 
 
 module.exports = {
@@ -106,6 +107,11 @@ module.exports = {
 		        
 		    });
 		});
+	},
+	deleteFolder:function(req, res){
+		var path = 'unzip';
+		df.deleteFolder(path);
+
 	}
 
 }
