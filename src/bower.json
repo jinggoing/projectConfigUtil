@@ -1,0 +1,22 @@
+{
+  "name": "src",
+  "homepage": "https://github.com/jinggoing/projectConfigUtil",
+  "authors": [
+    "jinxiong.hou <jinxiong.hou@aispeech.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "vue": "^2.0.2",
+    "jquery-form": "^3.46.0"
+  }
+}
