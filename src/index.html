@@ -7,91 +7,103 @@
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
 	    <title>config Util</title>
         <link rel="stylesheet" type="text/css" href="./bower_components/bootstrap/dist/css/bootstrap.min.css">
+        <style type="text/css">
+        	body{padding-top: 150px;}
+        	td{height: 45px;}
+        	input{width: 60px;text-align: center;margin-left: 15px;}
+			.longInput{width: 260px;}
+			input[type=checkbox]{width: 15px;}
+        </style>
     </head>
     <body>
-    	<form id="form" enctype="multipart/form-data" method="post">
-		    <input type="file" name="upload" multiple="multiple"><br>
-		    <input type="submit" value="Upload">
-	    </form>
-		
-		<div class="container">
-			<!-- Button trigger modal -->
-			
-
-			<!-- Modal -->
-			<div class="modal fade" id="properties" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-			  <div class="modal-dialog">
-			    <div class="modal-content">
-			      <div class="modal-header">
-			        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-			        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-			      </div>
-			      <div id="propertiesData" v-html="properties" contenteditable="true" class="modal-body">
-			        
-			      </div>
-			      <div class="modal-footer">
-			        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-			        <button type="button" class="btn btn-primary" v-on:click="propertiesUtil.save(path);">Save changes</button>
-			      </div>
-			    </div>
-			  </div>
-			</div>
-			
-			<div  id="table">
+    	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  			<div class="container">
+	    	<form role="form" id="form" enctype="multipart/form-data" method="post">
+	    		<div class="form-group">
+				    <label for="exampleInputFile">请选择zip压缩文件 文件内容必须严格按照标准格式否则无法解析</label>
+				    <input style="width:220px" type="file" name="upload" multiple="multiple">				  
+				</div>
+			    <button type="submit" class="btn btn-default">Submit</button>
+		    </form>
+		  </div>
+		</nav>
+		<div class="container"  style="overflow-x:scroll;width:95%">
+			<div style="width:20000px">
+			<div id="wakeup" style="float:left;" >
 			  <table class="table table-bordered table-hover">
 			  	<thead>
-			  		<tr><td>configuration</td></tr>
+			  		<tr><td>唤醒词文件</td></tr>
 			  	</thead>
 			  	<tbody>
-				  	<tr>
-				  	<td >brand1</td>
-				  	<td >brand2</td>
-				  	<td >唤醒词文件</td>
-				  	<td >配置文件</td>
-				  	<td >证书文件</td>
+			  		<tr>
+			  			<td align="center">型号</td>
+			  			<td align="center" style="fixed:left">mainword</td>
+			  			<td align="center">nickname</td>
+			  			<template v-for='n in items[0].wordsArr.length'>
+			  			<!-- v-on:change="check(n)" -->
+			  			<td align="center"><label> 唤醒词{{n}} <input   type="checkbox">批量修改开关 </label></td>
+			  			</template>
+			  		</tr>
+				  	<tr  v-for="(item ,index) in items">						
+				  		<td align="center">{{item.key}}</td>
+				  		<td align="center">{{item.mainword}}</td>
+				  		<td align="center">{{item.nickname}}</td>
+				  		<template v-model="word" v-for="(word, subindex) in item.wordsArr" >
+							<!-- <input  type="checkbox"> -->
+				  			<td><label>{{word}}</label><input  v-on:change="onchange(index,subindex,word)" v-model="item.threshArr[subindex]"/></td>
+				  		</template>				  						  	
 				  	</tr>
-				    <tr v-for="item in items">
-				    	<td>{{item.brand1}}</td>
-				    	<td>{{item.brand2}}</td>
-				    	<td>{{item.wakeup}}</td>
-				    	<td> <a href="javascript:" v-on:click="propertiesUtil.edit(item.properties)">{{item.properties}}</a> </td>
-				    	<td>{{item.provision}}</td>
-				    </tr>
 			    </tbody>
 			  </table>
 			</div>
-			<!-- <div  id="config" >
+			<div  id="config" style="float:left;" >
 			  <table class="table table-bordered table-hover">
 			  	<thead>
 			  		<tr><td>配置文件</td></tr>
 			  	</thead>
 			  	<tbody>
-				  	<tr><td width="160px" align="center">型号</td><td align="center">参数</td></tr>
-				    <tr v-for="(value, key) in object">
-				    	<td align="center">{{key}}</td>
-				    	<td v-html="value" contenteditable="true"></td>
-				    </tr>
+				  	<tr>				  		
+				  		<td align="center">reversed_channel</td>
+				  		<td align="center">interrupt_enable</td>
+				  		<td align="center">poicluster_enable</td>
+				  		<td align="center">tts_audio_track_vol</td>
+				  		<td align="center">aios_app_key</td>
+				  		<td align="center">aios_secret_key</td>
+				  		<td align="center">aios_user_id</td>
+				  	</tr>
+				   <tr contenteditable="true" v-for="(item,index) in items">				    	
+				    	<td align="center"> <input v-on:change="onchange(index,'reversed_channel')" v-model="item.reversed_channel"/></td>
+				    	<td align="center"> <input v-on:change="onchange(index,'interrupt_enable')" v-model="item.interrupt_enable"/></td>
+				    	<td align="center"> <input v-on:change="onchange(index,'poicluster_enable')" v-model="item.poicluster_enable"/></td>
+				    	<td align="center"> <input v-on:change="onchange(index,'tts_audio_track_vol')" v-model="item.tts_audio_track_vol"/></td>
+				    	<td align="center"> <input class="longInput" v-on:change="onchange(index,'aios_app_key')" v-model="item.aios_app_key"/></td>
+				    	<td align="center"> <input class="longInput" v-on:change="onchange(index,'aios_secret_key')" v-model="item.aios_secret_key"/></td>
+				    	<td align="center"> <input class="longInput" v-on:change="onchange(index,'aios_user_id')" v-model="item.aios_user_id"/></td>
+				   </tr>
 			    </tbody>
 			  </table>
 			</div>
-			<div id="provision" >
+			<div id="provision" style="float:left;" >
 			  <table class="table table-bordered table-hover">
 			  	<thead>
 			  		<tr><td>证书文件</td></tr>
 			  	</thead>
 			  	<tbody>
-				  	<tr><td width="160px" align="center">型号</td><td align="center">路径</td></tr>
+				  	<tr><td align="center">路径</td></tr>
 				    <tr v-for="(value, key) in object">
-				    	<td align="center">{{key}}</td>
 				    	<td align="center">{{value}}</td>
 				    </tr>
 			    </tbody>
 			  </table>
-			</div> -->
+			</div>
+			</div>			
 		</div>
 
-
-
+		<nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+  			<div class="container">	    		    
+			    <button type="button" onclick="downloadZip()" class="btn btn-success">打包下载</button>		    
+		  </div>
+		</nav>
 	    <script src="./bower_components/jquery/dist/jquery.min.js"></script>
 	    <script src="./bower_components/jquery-form/jquery.form.js"></script>
 	    <script src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -100,6 +112,17 @@
 	    String.prototype.replaceAll = function(s1,s2){
 		　　return this.replace(new RegExp(s1,"gm"),s2);
 		}
+	    function deleteNullInArray(array){
+	    	for(var i = 0 ;i<array.length;i++)
+ 				{
+		            if(array[i] == "" || typeof(array[i]) == "undefined")
+		            {
+		                array.splice(i,1);
+		                i= i-1;		                  
+		            }		            
+ 				}
+ 			return array;
+	    }
 	    readFolder();
 	    //解压
 	    function unzip(filePath){
@@ -113,67 +136,11 @@
 				},
 				success: function(result) {					
 					if(result.success){
-						console.log(result.msg);
-						readFolder();
+						location.reload();
 					}
 				}
 			});
 	    }
-
-
-	    var vueProperties =  new Vue({
-			  el: '#properties',
-			  data: {
-			    properties : '',
-			    path:''
-			  }
-			});
-
-	    propertiesUtil = {
-	    	edit : function (path){
-		    	console.log(path);
-		    	$.ajax({
-					type: "POST",
-					url:'/readProperties',
-					data:{'filePath':path},// 你的formid
-					async: false,
-					error: function(error) {
-						console.log(error);
-					},
-					success: function(result) {
-						if(result.success){
-							vueProperties.properties = result.data.replaceAll('\r\n','<br>');
-							vueProperties.path = path;
-						}
-						
-					}
-				});
-		    	$('#properties').modal();
-		    },
-		    save : function(filePath){
-		    	var str = $("#propertiesData").html().replaceAll('<br>','\r\n');
-		    	console.log(str);
-		    	$.ajax({
-					type: "POST",
-					url:'/writeFile',
-					data:{'str':str,'filePath':filePath},// 你的formid
-					async: false,
-					error: function(error) {
-						console.log(error);
-					},
-					success: function(result) {
-						console.log(result);
-						
-					}
-				});
-		    	console.log();
-		    	
-		    }
-	    }
-
-	    
-
-
 	    //读文件
 	    function readFolder(){
 	    	$.ajax({
@@ -184,14 +151,8 @@
 					console.log(error);
 				},
 				success: function(result) {
-					console.log(result);
 					if(result.success){
-						new Vue({
-						  el: '#table',
-						  data: {
-						    items: result.data
-						  }
-						});
+						dealData(result);
 					}
 					
 				}
@@ -218,25 +179,27 @@
 	        });       
 	    }); 
 
-	    function deleteNullInArray(array){
-	    	for(var i = 0 ;i<array.length;i++)
- 				{
-		             if(array[i] == "" || typeof(array[i]) == "undefined")
-		             {
-		                      array.splice(i,1);
-		                      i= i-1;
-		                  
-		             }
-		              
- 				}
- 				return array;
+	    function downloadZip(){
+	    	$.ajax({
+				type: "POST",
+				url:'/zipFolder',
+				async: false,
+				error: function(error) {
+					console.log(error);
+				},
+				success: function(result) {
+					if(result.success){
+						window.open("/"+result.file);
+					}
+					console.log(result);
+					
+				}
+			});
 	    }
-	    //all data
-	    function dealData(result){
-			console.log(result.msg);
 
+	    //dealData
+	    function dealData(result){
 			var wakeup = result.wakeup;
-			
 			var config = result.config;
 			var provision = result.provision;
 			var wakeupSerial = [];
@@ -248,6 +211,7 @@
 				newObj.coreType = obj.coreType;
 				newObj.mainword = obj.mainword;
 				newObj.nickname = obj.nickname;
+				newObj.filePath = obj.filePath;
 				var env = obj.env;
 				
 				var envArr = env.split(';');
@@ -258,21 +222,90 @@
 				newObj.key = key;
 				wakeupSerial.push(newObj);
 			}
-			console.log(wakeupSerial);
-
-			for(var key in config){							
+			/*for(var key in config){							
 				config[key] = config[key].replaceAll('\r\n','<br/>');
-			}
+			}*/
 			new Vue({
 			  el: '#wakeup',
 			  data: {
 			    items: wakeupSerial
+			  },
+			  methods: {
+			    onchange: function (index,subindex,key) {
+			    console.log(event.target.value);
+			    	var trs = $("#wakeup table tr");
+			    	var updateAll = trs.eq(1).find("td").eq(subindex+3).find("input[type='checkbox']")[0].checked;
+
+
+			    	var items = this.items;
+			    	if(updateAll){
+			    		for (var i =0; i<items.length; i++) {
+			    			this.items[i].threshArr[subindex] = items[index].threshArr[subindex];
+			    			$.ajax({
+								type: "POST",
+								url:'/saveWakeupFile',
+								data:{'wakeupFile':items[i]},
+								async: false,
+								error: function(error) {
+									console.log(error);
+								},
+								success: function(result) {
+									console.log('正在更改第'+i+'个文件');
+								}
+							});
+			    		}
+			    		location.reload();
+			    	}else{
+				    	$.ajax({
+							type: "POST",
+							url:'/saveWakeupFile',
+							data:{'wakeupFile':items[index]},
+							async: false,
+							error: function(error) {
+								console.log(error);
+							},
+							success: function(result) {
+								alert(result.msg);
+							}
+						});	
+					}	      
+			  	},
+			  	check : function(index){
+			  		var checked = event.target.checked;
+			  		var trs = $("#wakeup table tr");
+			  		console.log(index)
+			  		if(checked){
+			  			for(var i=2;i<trs.length;i++){
+			  				trs.eq(i).find("td").eq(index+2).find("input[type='checkbox']")[0].checked=true;
+			  			}	
+			  		}else{
+			  			for(var i=2;i<trs.length;i++){
+			  				trs.eq(i).find("td").eq(index+2).find("input[type='checkbox']")[0].checked=false;
+			  			}
+			  		}
+			  	}	
 			  }
 			});
 			new Vue({
 			  el: '#config',
 			  data: {
-			    object: config
+			    items: config
+			  },
+			  methods: {
+			    onchange: function (index,key) {		    				    	
+			    	$.ajax({
+						type: "POST",
+						url:'/saveConfigFile',
+						data:{'configFile':this.items[index]},// 你的formid
+						async: false,
+						error: function(error) {
+							console.log(error);
+						},
+						success: function(result) {
+							alert(result.msg);
+						}
+					});			      
+			  	}	
 			  }
 			});
 
@@ -283,8 +316,6 @@
 			  }
 			});
 	    }
-
-
 	    </script>
     </body>
 </html>

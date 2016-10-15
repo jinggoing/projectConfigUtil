@@ -2,7 +2,7 @@
 * @Author: jinggoing
 * @Date:   2016-10-11 10:42:52
 * @Last Modified by:   jinxiong.hou
-* @Last Modified time: 2016-10-13 18:35:28
+* @Last Modified time: 2016-10-15 10:16:23
 */
 
 var bodyParser = require('body-parser');
@@ -19,7 +19,9 @@ module.exports = function (app) {
 	app.route('/readFolder').post(indexController.readFolder);
 	app.route('/readProperties').post(indexController.readProperties);
 	app.route('/writeFile').post(indexController.writeFile);
-	app.route('/zipFolder').get(indexController.zipFolder);
+	app.route('/saveConfigFile').post(indexController.saveConfigFile);
+	app.route('/saveWakeupFile').post(indexController.saveWakeupFile);	
+	app.route('/zipFolder').post(indexController.zipFolder);
 
 	
 
