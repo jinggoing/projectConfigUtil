@@ -8,7 +8,7 @@
 	    <title>config Util</title>
         <link rel="stylesheet" type="text/css" href="./bower_components/bootstrap/dist/css/bootstrap.min.css">
         <style type="text/css">
-        	body{padding-top: 150px;}
+        	body{padding-top: 150px;padding-bottom: 120px;}
         	td{height: 45px;}
         	input{width: 60px;text-align: center;margin-left: 15px;}
 			.longInput{width: 260px;}
@@ -20,17 +20,17 @@
   			<div class="container">
 	    	<form role="form" id="form" enctype="multipart/form-data" method="post">
 	    		<div class="form-group">
-				    <label for="exampleInputFile">请选择zip压缩文件 文件内容必须严格按照标准格式否则无法解析</label>
+				    <label for="exampleInputFile">请选择zip压缩文件 文件夹名称只能英文且不能存在空格</label>
 				    <input style="width:220px" type="file" name="upload" multiple="multiple">				  
 				</div>
 			    <button type="submit" class="btn btn-default">Submit</button>
 		    </form>
 		  </div>
 		</nav>
-		<div class="container"  style="overflow-x:scroll;width:95%">
-			<div style="width:20000px">
+		<div class="container"  style="min-width:10500px;">
+			<div style="">
 			<div id="wakeup" style="float:left;" >
-			  <table class="table table-bordered table-hover">
+			  <table class="table table-bordered table-hover table-striped">
 			  	<thead>
 			  		<tr><td>唤醒词文件</td></tr>
 			  	</thead>
@@ -57,34 +57,34 @@
 			  </table>
 			</div>
 			<div  id="config" style="float:left;" >
-			  <table class="table table-bordered table-hover">
+			  <table class="table table-bordered table-hover table-striped">
 			  	<thead>
 			  		<tr><td>配置文件</td></tr>
 			  	</thead>
 			  	<tbody>
 				  	<tr>				  		
-				  		<td align="center">reversed_channel</td>
-				  		<td align="center">interrupt_enable</td>
-				  		<td align="center">poicluster_enable</td>
-				  		<td align="center">tts_audio_track_vol</td>
+				  		<td align="center"><label> <input   type="checkbox">reversed_channel</label></td>
+				  		<td align="center"><label> <input   type="checkbox">interrupt_enable</label></td>
+				  		<td align="center"><label> <input   type="checkbox">poicluster_enable</label></td>
+				  		<td align="center"><label> <input   type="checkbox">tts_audio_track_vol</label></td>
 				  		<td align="center">aios_app_key</td>
 				  		<td align="center">aios_secret_key</td>
 				  		<td align="center">aios_user_id</td>
 				  	</tr>
 				   <tr contenteditable="true" v-for="(item,index) in items">				    	
-				    	<td align="center"> <input v-on:change="onchange(index,'reversed_channel')" v-model="item.reversed_channel"/></td>
-				    	<td align="center"> <input v-on:change="onchange(index,'interrupt_enable')" v-model="item.interrupt_enable"/></td>
-				    	<td align="center"> <input v-on:change="onchange(index,'poicluster_enable')" v-model="item.poicluster_enable"/></td>
-				    	<td align="center"> <input v-on:change="onchange(index,'tts_audio_track_vol')" v-model="item.tts_audio_track_vol"/></td>
-				    	<td align="center"> <input class="longInput" v-on:change="onchange(index,'aios_app_key')" v-model="item.aios_app_key"/></td>
-				    	<td align="center"> <input class="longInput" v-on:change="onchange(index,'aios_secret_key')" v-model="item.aios_secret_key"/></td>
-				    	<td align="center"> <input class="longInput" v-on:change="onchange(index,'aios_user_id')" v-model="item.aios_user_id"/></td>
+				    	<td align="center"> <input v-on:change="onchange(index,0,'reversed_channel')" v-model="item.reversed_channel"/></td>
+				    	<td align="center"> <input v-on:change="onchange(index,1,'interrupt_enable')" v-model="item.interrupt_enable"/></td>
+				    	<td align="center"> <input v-on:change="onchange(index,2,'poicluster_enable')" v-model="item.poicluster_enable"/></td>
+				    	<td align="center"> <input v-on:change="onchange(index,3,'tts_audio_track_vol')" v-model="item.tts_audio_track_vol"/></td>
+				    	<td align="center"> <input class="longInput" v-on:change="onchange(index,4,'aios_app_key')" v-model="item.aios_app_key"/></td>
+				    	<td align="center"> <input class="longInput" v-on:change="onchange(index,5,'aios_secret_key')" v-model="item.aios_secret_key"/></td>
+				    	<td align="center"> <input class="longInput" v-on:change="onchange(index,6,'aios_user_id')" v-model="item.aios_user_id"/></td>
 				   </tr>
 			    </tbody>
 			  </table>
 			</div>
 			<div id="provision" style="float:left;" >
-			  <table class="table table-bordered table-hover">
+			  <table class="table table-bordered table-hover table-striped">
 			  	<thead>
 			  		<tr><td>证书文件</td></tr>
 			  	</thead>
@@ -233,10 +233,8 @@
 			  methods: {
 			    onchange: function (index,subindex,key) {
 			    console.log(event.target.value);
-			    	var trs = $("#wakeup table tr");
-			    	var updateAll = trs.eq(1).find("td").eq(subindex+3).find("input[type='checkbox']")[0].checked;
-
-
+			    	var checkbox = $("#wakeup table tr").eq(1).find("td").eq(subindex+3).find("input[type='checkbox']")[0];
+			    	var updateAll = checkbox==undefined? false : checkbox.checked;
 			    	var items = this.items;
 			    	if(updateAll){
 			    		for (var i =0; i<items.length; i++) {
@@ -292,19 +290,41 @@
 			    items: config
 			  },
 			  methods: {
-			    onchange: function (index,key) {		    				    	
-			    	$.ajax({
-						type: "POST",
-						url:'/saveConfigFile',
-						data:{'configFile':this.items[index]},// 你的formid
-						async: false,
-						error: function(error) {
-							console.log(error);
-						},
-						success: function(result) {
-							alert(result.msg);
-						}
-					});			      
+			    onchange: function (index,tdIndex,key) {
+			    	var checkbox = $("#wakeup table tr").eq(1).find("td").eq(subindex+3).find("input[type='checkbox']")[0];
+			    	var updateAll = checkbox==undefined? false : checkbox.checked;
+			    	var items = this.items;
+			    	if(updateAll){
+			    		for (var i =0; i<items.length; i++) {
+			    			this.items[i][key] = items[index][key];
+			    			$.ajax({
+								type: "POST",
+								url:'/saveConfigFile',
+								data:{'configFile':this.items[i]},
+								async: false,
+								error: function(error) {
+									console.log(error);
+								},
+								success: function(result) {
+									console.log('正在更改第'+i+'个文件');
+								}
+							});
+			    		}
+			    		//location.reload();
+			    	}else{
+				    	$.ajax({
+							type: "POST",
+							url:'/saveConfigFile',
+							data:{'configFile':this.items[index]},// 你的formid
+							async: false,
+							error: function(error) {
+								console.log(error);
+							},
+							success: function(result) {
+								alert(result.msg);
+							}
+						});
+					}			      
 			  	}	
 			  }
 			});

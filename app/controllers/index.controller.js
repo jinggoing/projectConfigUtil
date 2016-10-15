@@ -3,7 +3,7 @@
 * @Author: jinggoing
 * @Date:   2016-10-11 10:53:21
 * @Last Modified by:   jinxiong.hou
-* @Last Modified time: 2016-10-15 10:49:18
+* @Last Modified time: 2016-10-15 15:37:07
 */
 
 var multiparty = require('multiparty');
@@ -12,8 +12,9 @@ var util = require('util');
 var fs = require('fs');
 var iconv = require('iconv-lite');
 var unzip =require('unzip');
-var zip = require("node-native-zip");
 var adm_zip = require('adm-zip');
+var DecompressZip = require('decompress-zip');
+var zip = require("node-native-zip");
 var df = require('./deleteFolder.js')
 var fr = require('./folderRead.js');
 var unzipPath = 'src/unzip/';
@@ -29,7 +30,7 @@ var configNote = {
 	aios_user_id:'#AIOS用户标识'
 }
 
-
+//清除数组的空元素
 function deleteNullInArray(array){
 	for(var i = 0 ;i<array.length;i++)
 			{
@@ -41,6 +42,7 @@ function deleteNullInArray(array){
 			}
 		return array;
 }
+//处理configuration对象 格式化输出
 function dealConfigObj(configObj){
 	var configArr = [];
 	var reg =/^#/;
@@ -112,9 +114,20 @@ module.exports = {
 	unzip:function(req, res){		
 		df.deleteFolder(unzipPath);
 		//fs.createReadStream(req.body.filePath).pipe(unzip.Extract({ path: unzipPath }));
-		var unzip = new adm_zip(req.body.filePath);  
-   		unzip.extractAllTo(unzipPath, true);
-		console.log('unzip completed');
+		//var unzip = new adm_zip(req.body.filePath);
+		//unzip.extractAllTo(unzipPath, true);  
+		var unzipper = new DecompressZip(req.body.filePath);
+		unzipper.on('extract', function (log) {
+		    console.log('Finished extracting');
+		});
+		unzipper.extract({
+		    path: unzipPath,
+		    filter: function (file) {
+		        return file.type !== "SymbolicLink";
+		    }
+		});
+   		
+		//console.log('unzip completed');
   		res.json({'success':true,'msg':'unzip completed'});
 	},
 	//读取文件夹结构和文件内容
@@ -154,8 +167,8 @@ module.exports = {
 		//console.log(provision['zsh-V3-6735']);
 		res.json(output);
 	},
-	//读取文件夹结构和文件内容
-	readFolder1 : function(req, res){
+	//读取输出文件内容
+	outputFileContent : function(req, res){
 		var fileArr = fr.getAllFiles(unzipPath,function(){});
 		var output = {};
 		var dataArr = [];
@@ -186,10 +199,7 @@ module.exports = {
 			}
 			if(i==fileArr.length-1){
 				dataArr.push(obj);
-			}
-
-			
-			
+			}	
 		}
 		
 		output.data = dataArr;
@@ -280,8 +290,6 @@ module.exports = {
 	    	}
 	    });
 	},
-
-
 
 	writeFile : function(req, res){
 	    // 测试用的中文  
