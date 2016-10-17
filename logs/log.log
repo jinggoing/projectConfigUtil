@@ -1,2 +1,221 @@
 [2016-10-17 09:59:49.896] [INFO] dateFileLog - app start
 [2016-10-17 09:59:50.361] [INFO] dateFileLog - app listening at  9990
+[2016-10-17 15:23:01.821] [INFO] dateFileLog - app start
+[2016-10-17 15:23:01.891] [INFO] dateFileLog - app listening at  9990
+[2016-10-17 15:23:06.323] [INFO] dateFileLog - readFolder file
+[2016-10-17 15:23:06.982] [INFO] dateFileLog - readFolder file
+[2016-10-17 15:23:07.234] [INFO] dateFileLog - readFolder file
+[2016-10-17 15:23:17.114] [INFO] dateFileLog - 写入wakeupFile ok
+[2016-10-17 15:25:01.061] [INFO] dateFileLog - app start
+[2016-10-17 15:25:01.136] [INFO] dateFileLog - app listening at  9990
+[2016-10-17 15:25:03.768] [INFO] dateFileLog - readFolder file
+[2016-10-17 15:25:08.571] [INFO] dateFileLog - [object Object] 写入wakeupFile ok src/unzip/diyixianchang-aimi/D687-6735P/assets/wakeup.param
+[2016-10-17 15:25:58.595] [INFO] dateFileLog - app start
+[2016-10-17 15:25:58.665] [INFO] dateFileLog - app listening at  9990
+[2016-10-17 15:26:17.023] [INFO] dateFileLog - readFolder file
+[2016-10-17 15:26:17.622] [INFO] dateFileLog - readFolder file
+[2016-10-17 15:26:17.925] [INFO] dateFileLog - readFolder file
+[2016-10-17 15:26:23.638] [INFO] dateFileLog -  写入wakeupFile ok src/unzip/diyixianchang-aimi/D687-6735P/assets/wakeup.param
+[2016-10-17 15:31:40.947] [INFO] dateFileLog - app start
+[2016-10-17 15:31:41.019] [INFO] dateFileLog - app listening at  9990
+[2016-10-17 15:31:44.734] [INFO] dateFileLog - readFolder file src/unzip/diyixianchang-aimi/D687-6735P/assets/aios.provision
+[2016-10-17 15:31:44.735] [INFO] dateFileLog - readFolder file src/unzip/diyixianchang-aimi/D687-6735P/assets/config.properties
+[2016-10-17 15:31:44.735] [INFO] dateFileLog - readFolder file src/unzip/diyixianchang-aimi/D687-6735P/assets/wakeup.param
+[2016-10-17 15:31:44.735] [INFO] dateFileLog - readFolder file src/unzip/lintu-aimi/V9-6735/assets/aios.provision
+[2016-10-17 15:31:44.735] [INFO] dateFileLog - readFolder file src/unzip/lintu-aimi/V9-6735/assets/config.properties
+[2016-10-17 15:31:44.735] [INFO] dateFileLog - readFolder file src/unzip/lintu-aimi/V9-6735/assets/wakeup.param
+[2016-10-17 15:31:44.735] [INFO] dateFileLog - readFolder file src/unzip/qizheng-aimi/818-6735/assets/aios.provision
+[2016-10-17 15:31:44.735] [INFO] dateFileLog - readFolder file src/unzip/qizheng-aimi/818-6735/assets/config.properties
+[2016-10-17 15:31:44.735] [INFO] dateFileLog - readFolder file src/unzip/qizheng-aimi/818-6735/assets/wakeup.param
+[2016-10-17 15:31:44.736] [INFO] dateFileLog - readFolder file src/unzip/yidonghulian-aimi/Q30S-6735P/assets/aios.provision
+[2016-10-17 15:31:44.736] [INFO] dateFileLog - readFolder file src/unzip/yidonghulian-aimi/Q30S-6735P/assets/config.properties
+[2016-10-17 15:31:44.736] [INFO] dateFileLog - readFolder file src/unzip/yidonghulian-aimi/Q30S-6735P/assets/wakeup.param
+[2016-10-17 15:31:44.736] [INFO] dateFileLog - readFolder file src/unzip/yitu-aimi/T6-8735P/assets/aios.provision
+[2016-10-17 15:31:44.736] [INFO] dateFileLog - readFolder file src/unzip/yitu-aimi/T6-8735P/assets/config.properties
+[2016-10-17 15:31:44.736] [INFO] dateFileLog - readFolder file src/unzip/yitu-aimi/T6-8735P/assets/wakeup.param
+[2016-10-17 15:31:44.736] [INFO] dateFileLog - readFolder file src/unzip/zushihui-aimi/V3-6735/assets/aios.provision
+[2016-10-17 15:31:44.736] [INFO] dateFileLog - readFolder file src/unzip/zushihui-aimi/V3-6735/assets/config.properties
+[2016-10-17 15:31:44.737] [INFO] dateFileLog - readFolder file src/unzip/zushihui-aimi/V3-6735/assets/wakeup.param
+[2016-10-17 15:35:11.218] [INFO] dateFileLog - readFolder file src/unzip/diyixianchang-aimi/D687-6735P/assets/aios.provision
+[2016-10-17 15:35:11.218] [INFO] dateFileLog - readFolder file src/unzip/diyixianchang-aimi/D687-6735P/assets/config.properties
+[2016-10-17 15:35:11.218] [INFO] dateFileLog - readFolder file src/unzip/diyixianchang-aimi/D687-6735P/assets/wakeup.param
+[2016-10-17 15:35:11.218] [INFO] dateFileLog - readFolder file src/unzip/lintu-aimi/V9-6735/assets/aios.provision
+[2016-10-17 15:35:11.218] [INFO] dateFileLog - readFolder file src/unzip/lintu-aimi/V9-6735/assets/config.properties
+[2016-10-17 15:35:11.218] [INFO] dateFileLog - readFolder file src/unzip/lintu-aimi/V9-6735/assets/wakeup.param
+[2016-10-17 15:35:11.218] [INFO] dateFileLog - readFolder file src/unzip/qizheng-aimi/818-6735/assets/aios.provision
+[2016-10-17 15:35:11.218] [INFO] dateFileLog - readFolder file src/unzip/qizheng-aimi/818-6735/assets/config.properties
+[2016-10-17 15:35:11.218] [INFO] dateFileLog - readFolder file src/unzip/qizheng-aimi/818-6735/assets/wakeup.param
+[2016-10-17 15:35:11.218] [INFO] dateFileLog - readFolder file src/unzip/yidonghulian-aimi/Q30S-6735P/assets/aios.provision
+[2016-10-17 15:35:11.218] [INFO] dateFileLog - readFolder file src/unzip/yidonghulian-aimi/Q30S-6735P/assets/config.properties
+[2016-10-17 15:35:11.218] [INFO] dateFileLog - readFolder file src/unzip/yidonghulian-aimi/Q30S-6735P/assets/wakeup.param
+[2016-10-17 15:35:11.219] [INFO] dateFileLog - readFolder file src/unzip/yitu-aimi/T6-8735P/assets/aios.provision
+[2016-10-17 15:35:11.219] [INFO] dateFileLog - readFolder file src/unzip/yitu-aimi/T6-8735P/assets/config.properties
+[2016-10-17 15:35:11.219] [INFO] dateFileLog - readFolder file src/unzip/yitu-aimi/T6-8735P/assets/wakeup.param
+[2016-10-17 15:35:11.219] [INFO] dateFileLog - readFolder file src/unzip/zushihui-aimi/V3-6735/assets/aios.provision
+[2016-10-17 15:35:11.219] [INFO] dateFileLog - readFolder file src/unzip/zushihui-aimi/V3-6735/assets/config.properties
+[2016-10-17 15:35:11.219] [INFO] dateFileLog - readFolder file src/unzip/zushihui-aimi/V3-6735/assets/wakeup.param
+[2016-10-17 15:35:37.980] [INFO] dateFileLog - readFolder file src/unzip/diyixianchang-aimi/D687-6735P/assets/aios.provision
+[2016-10-17 15:35:37.980] [INFO] dateFileLog - readFolder file src/unzip/diyixianchang-aimi/D687-6735P/assets/config.properties
+[2016-10-17 15:35:37.980] [INFO] dateFileLog - readFolder file src/unzip/diyixianchang-aimi/D687-6735P/assets/wakeup.param
+[2016-10-17 15:35:37.980] [INFO] dateFileLog - readFolder file src/unzip/lintu-aimi/V9-6735/assets/aios.provision
+[2016-10-17 15:35:37.980] [INFO] dateFileLog - readFolder file src/unzip/lintu-aimi/V9-6735/assets/config.properties
+[2016-10-17 15:35:37.980] [INFO] dateFileLog - readFolder file src/unzip/lintu-aimi/V9-6735/assets/wakeup.param
+[2016-10-17 15:35:37.980] [INFO] dateFileLog - readFolder file src/unzip/qizheng-aimi/818-6735/assets/aios.provision
+[2016-10-17 15:35:37.980] [INFO] dateFileLog - readFolder file src/unzip/qizheng-aimi/818-6735/assets/config.properties
+[2016-10-17 15:35:37.980] [INFO] dateFileLog - readFolder file src/unzip/qizheng-aimi/818-6735/assets/wakeup.param
+[2016-10-17 15:35:37.980] [INFO] dateFileLog - readFolder file src/unzip/yidonghulian-aimi/Q30S-6735P/assets/aios.provision
+[2016-10-17 15:35:37.980] [INFO] dateFileLog - readFolder file src/unzip/yidonghulian-aimi/Q30S-6735P/assets/config.properties
+[2016-10-17 15:35:37.981] [INFO] dateFileLog - readFolder file src/unzip/yidonghulian-aimi/Q30S-6735P/assets/wakeup.param
+[2016-10-17 15:35:37.981] [INFO] dateFileLog - readFolder file src/unzip/yitu-aimi/T6-8735P/assets/aios.provision
+[2016-10-17 15:35:37.981] [INFO] dateFileLog - readFolder file src/unzip/yitu-aimi/T6-8735P/assets/config.properties
+[2016-10-17 15:35:37.981] [INFO] dateFileLog - readFolder file src/unzip/yitu-aimi/T6-8735P/assets/wakeup.param
+[2016-10-17 15:35:37.981] [INFO] dateFileLog - readFolder file src/unzip/zushihui-aimi/V3-6735/assets/aios.provision
+[2016-10-17 15:35:37.981] [INFO] dateFileLog - readFolder file src/unzip/zushihui-aimi/V3-6735/assets/config.properties
+[2016-10-17 15:35:37.981] [INFO] dateFileLog - readFolder file src/unzip/zushihui-aimi/V3-6735/assets/wakeup.param
+[2016-10-17 15:35:50.668] [INFO] dateFileLog - readFolder file src/unzip/diyixianchang-aimi/D687-6735P/assets/aios.provision
+[2016-10-17 15:35:50.668] [INFO] dateFileLog - readFolder file src/unzip/diyixianchang-aimi/D687-6735P/assets/config.properties
+[2016-10-17 15:35:50.669] [INFO] dateFileLog - readFolder file src/unzip/diyixianchang-aimi/D687-6735P/assets/wakeup.param
+[2016-10-17 15:35:50.669] [INFO] dateFileLog - readFolder file src/unzip/lintu-aimi/V9-6735/assets/aios.provision
+[2016-10-17 15:35:50.669] [INFO] dateFileLog - readFolder file src/unzip/lintu-aimi/V9-6735/assets/config.properties
+[2016-10-17 15:35:50.669] [INFO] dateFileLog - readFolder file src/unzip/lintu-aimi/V9-6735/assets/wakeup.param
+[2016-10-17 15:35:50.669] [INFO] dateFileLog - readFolder file src/unzip/qizheng-aimi/818-6735/assets/aios.provision
+[2016-10-17 15:35:50.669] [INFO] dateFileLog - readFolder file src/unzip/qizheng-aimi/818-6735/assets/config.properties
+[2016-10-17 15:35:50.669] [INFO] dateFileLog - readFolder file src/unzip/qizheng-aimi/818-6735/assets/wakeup.param
+[2016-10-17 15:35:50.669] [INFO] dateFileLog - readFolder file src/unzip/yidonghulian-aimi/Q30S-6735P/assets/aios.provision
+[2016-10-17 15:35:50.669] [INFO] dateFileLog - readFolder file src/unzip/yidonghulian-aimi/Q30S-6735P/assets/config.properties
+[2016-10-17 15:35:50.669] [INFO] dateFileLog - readFolder file src/unzip/yidonghulian-aimi/Q30S-6735P/assets/wakeup.param
+[2016-10-17 15:35:50.669] [INFO] dateFileLog - readFolder file src/unzip/yitu-aimi/T6-8735P/assets/aios.provision
+[2016-10-17 15:35:50.669] [INFO] dateFileLog - readFolder file src/unzip/yitu-aimi/T6-8735P/assets/config.properties
+[2016-10-17 15:35:50.669] [INFO] dateFileLog - readFolder file src/unzip/yitu-aimi/T6-8735P/assets/wakeup.param
+[2016-10-17 15:35:50.670] [INFO] dateFileLog - readFolder file src/unzip/zushihui-aimi/V3-6735/assets/aios.provision
+[2016-10-17 15:35:50.670] [INFO] dateFileLog - readFolder file src/unzip/zushihui-aimi/V3-6735/assets/config.properties
+[2016-10-17 15:35:50.670] [INFO] dateFileLog - readFolder file src/unzip/zushihui-aimi/V3-6735/assets/wakeup.param
+[2016-10-17 15:35:57.776] [INFO] dateFileLog - readFolder file src/unzip/diyixianchang-aimi/D687-6735P/assets/aios.provision
+[2016-10-17 15:35:57.776] [INFO] dateFileLog - readFolder file src/unzip/diyixianchang-aimi/D687-6735P/assets/config.properties
+[2016-10-17 15:35:57.776] [INFO] dateFileLog - readFolder file src/unzip/diyixianchang-aimi/D687-6735P/assets/wakeup.param
+[2016-10-17 15:35:57.776] [INFO] dateFileLog - readFolder file src/unzip/lintu-aimi/V9-6735/assets/aios.provision
+[2016-10-17 15:35:57.776] [INFO] dateFileLog - readFolder file src/unzip/lintu-aimi/V9-6735/assets/config.properties
+[2016-10-17 15:35:57.776] [INFO] dateFileLog - readFolder file src/unzip/lintu-aimi/V9-6735/assets/wakeup.param
+[2016-10-17 15:35:57.776] [INFO] dateFileLog - readFolder file src/unzip/qizheng-aimi/818-6735/assets/aios.provision
+[2016-10-17 15:35:57.777] [INFO] dateFileLog - readFolder file src/unzip/qizheng-aimi/818-6735/assets/config.properties
+[2016-10-17 15:35:57.777] [INFO] dateFileLog - readFolder file src/unzip/qizheng-aimi/818-6735/assets/wakeup.param
+[2016-10-17 15:35:57.777] [INFO] dateFileLog - readFolder file src/unzip/yidonghulian-aimi/Q30S-6735P/assets/aios.provision
+[2016-10-17 15:35:57.777] [INFO] dateFileLog - readFolder file src/unzip/yidonghulian-aimi/Q30S-6735P/assets/config.properties
+[2016-10-17 15:35:57.777] [INFO] dateFileLog - readFolder file src/unzip/yidonghulian-aimi/Q30S-6735P/assets/wakeup.param
+[2016-10-17 15:35:57.777] [INFO] dateFileLog - readFolder file src/unzip/yitu-aimi/T6-8735P/assets/aios.provision
+[2016-10-17 15:35:57.777] [INFO] dateFileLog - readFolder file src/unzip/yitu-aimi/T6-8735P/assets/config.properties
+[2016-10-17 15:35:57.777] [INFO] dateFileLog - readFolder file src/unzip/yitu-aimi/T6-8735P/assets/wakeup.param
+[2016-10-17 15:35:57.777] [INFO] dateFileLog - readFolder file src/unzip/zushihui-aimi/V3-6735/assets/aios.provision
+[2016-10-17 15:35:57.777] [INFO] dateFileLog - readFolder file src/unzip/zushihui-aimi/V3-6735/assets/config.properties
+[2016-10-17 15:35:57.777] [INFO] dateFileLog - readFolder file src/unzip/zushihui-aimi/V3-6735/assets/wakeup.param
+[2016-10-17 15:36:02.107] [INFO] dateFileLog - readFolder file src/unzip/diyixianchang-aimi/D687-6735P/assets/aios.provision
+[2016-10-17 15:36:02.107] [INFO] dateFileLog - readFolder file src/unzip/diyixianchang-aimi/D687-6735P/assets/config.properties
+[2016-10-17 15:36:02.107] [INFO] dateFileLog - readFolder file src/unzip/diyixianchang-aimi/D687-6735P/assets/wakeup.param
+[2016-10-17 15:36:02.107] [INFO] dateFileLog - readFolder file src/unzip/lintu-aimi/V9-6735/assets/aios.provision
+[2016-10-17 15:36:02.107] [INFO] dateFileLog - readFolder file src/unzip/lintu-aimi/V9-6735/assets/config.properties
+[2016-10-17 15:36:02.107] [INFO] dateFileLog - readFolder file src/unzip/lintu-aimi/V9-6735/assets/wakeup.param
+[2016-10-17 15:36:02.108] [INFO] dateFileLog - readFolder file src/unzip/qizheng-aimi/818-6735/assets/aios.provision
+[2016-10-17 15:36:02.108] [INFO] dateFileLog - readFolder file src/unzip/qizheng-aimi/818-6735/assets/config.properties
+[2016-10-17 15:36:02.109] [INFO] dateFileLog - readFolder file src/unzip/qizheng-aimi/818-6735/assets/wakeup.param
+[2016-10-17 15:36:02.109] [INFO] dateFileLog - readFolder file src/unzip/yidonghulian-aimi/Q30S-6735P/assets/aios.provision
+[2016-10-17 15:36:02.109] [INFO] dateFileLog - readFolder file src/unzip/yidonghulian-aimi/Q30S-6735P/assets/config.properties
+[2016-10-17 15:36:02.109] [INFO] dateFileLog - readFolder file src/unzip/yidonghulian-aimi/Q30S-6735P/assets/wakeup.param
+[2016-10-17 15:36:02.109] [INFO] dateFileLog - readFolder file src/unzip/yitu-aimi/T6-8735P/assets/aios.provision
+[2016-10-17 15:36:02.109] [INFO] dateFileLog - readFolder file src/unzip/yitu-aimi/T6-8735P/assets/config.properties
+[2016-10-17 15:36:02.109] [INFO] dateFileLog - readFolder file src/unzip/yitu-aimi/T6-8735P/assets/wakeup.param
+[2016-10-17 15:36:02.109] [INFO] dateFileLog - readFolder file src/unzip/zushihui-aimi/V3-6735/assets/aios.provision
+[2016-10-17 15:36:02.109] [INFO] dateFileLog - readFolder file src/unzip/zushihui-aimi/V3-6735/assets/config.properties
+[2016-10-17 15:36:02.109] [INFO] dateFileLog - readFolder file src/unzip/zushihui-aimi/V3-6735/assets/wakeup.param
+[2016-10-17 15:36:17.339] [INFO] dateFileLog - readFolder file src/unzip/diyixianchang-aimi/D687-6735P/assets/aios.provision
+[2016-10-17 15:36:17.339] [INFO] dateFileLog - readFolder file src/unzip/diyixianchang-aimi/D687-6735P/assets/config.properties
+[2016-10-17 15:36:17.339] [INFO] dateFileLog - readFolder file src/unzip/diyixianchang-aimi/D687-6735P/assets/wakeup.param
+[2016-10-17 15:36:17.340] [INFO] dateFileLog - readFolder file src/unzip/lintu-aimi/V9-6735/assets/aios.provision
+[2016-10-17 15:36:17.340] [INFO] dateFileLog - readFolder file src/unzip/lintu-aimi/V9-6735/assets/config.properties
+[2016-10-17 15:36:17.340] [INFO] dateFileLog - readFolder file src/unzip/lintu-aimi/V9-6735/assets/wakeup.param
+[2016-10-17 15:36:17.340] [INFO] dateFileLog - readFolder file src/unzip/qizheng-aimi/818-6735/assets/aios.provision
+[2016-10-17 15:36:17.340] [INFO] dateFileLog - readFolder file src/unzip/qizheng-aimi/818-6735/assets/config.properties
+[2016-10-17 15:36:17.340] [INFO] dateFileLog - readFolder file src/unzip/qizheng-aimi/818-6735/assets/wakeup.param
+[2016-10-17 15:36:17.340] [INFO] dateFileLog - readFolder file src/unzip/yidonghulian-aimi/Q30S-6735P/assets/aios.provision
+[2016-10-17 15:36:17.340] [INFO] dateFileLog - readFolder file src/unzip/yidonghulian-aimi/Q30S-6735P/assets/config.properties
+[2016-10-17 15:36:17.340] [INFO] dateFileLog - readFolder file src/unzip/yidonghulian-aimi/Q30S-6735P/assets/wakeup.param
+[2016-10-17 15:36:17.340] [INFO] dateFileLog - readFolder file src/unzip/yitu-aimi/T6-8735P/assets/aios.provision
+[2016-10-17 15:36:17.340] [INFO] dateFileLog - readFolder file src/unzip/yitu-aimi/T6-8735P/assets/config.properties
+[2016-10-17 15:36:17.340] [INFO] dateFileLog - readFolder file src/unzip/yitu-aimi/T6-8735P/assets/wakeup.param
+[2016-10-17 15:36:17.340] [INFO] dateFileLog - readFolder file src/unzip/zushihui-aimi/V3-6735/assets/aios.provision
+[2016-10-17 15:36:17.340] [INFO] dateFileLog - readFolder file src/unzip/zushihui-aimi/V3-6735/assets/config.properties
+[2016-10-17 15:36:17.340] [INFO] dateFileLog - readFolder file src/unzip/zushihui-aimi/V3-6735/assets/wakeup.param
+[2016-10-17 15:36:22.384] [INFO] dateFileLog -  写入wakeupFile ok src/unzip/diyixianchang-aimi/D687-6735P/assets/wakeup.param
+[2016-10-17 15:36:22.391] [INFO] dateFileLog -  写入wakeupFile ok src/unzip/lintu-aimi/V9-6735/assets/wakeup.param
+[2016-10-17 15:36:22.397] [INFO] dateFileLog -  写入wakeupFile ok src/unzip/qizheng-aimi/818-6735/assets/wakeup.param
+[2016-10-17 15:36:22.402] [INFO] dateFileLog -  写入wakeupFile ok src/unzip/yidonghulian-aimi/Q30S-6735P/assets/wakeup.param
+[2016-10-17 15:36:22.409] [INFO] dateFileLog -  写入wakeupFile ok src/unzip/yitu-aimi/T6-8735P/assets/wakeup.param
+[2016-10-17 15:36:22.413] [INFO] dateFileLog -  写入wakeupFile ok src/unzip/zushihui-aimi/V3-6735/assets/wakeup.param
+[2016-10-17 15:36:36.342] [INFO] dateFileLog -  写入wakeupFile ok src/unzip/diyixianchang-aimi/D687-6735P/assets/wakeup.param
+[2016-10-17 15:36:36.353] [INFO] dateFileLog -  写入wakeupFile ok src/unzip/lintu-aimi/V9-6735/assets/wakeup.param
+[2016-10-17 15:36:36.361] [INFO] dateFileLog -  写入wakeupFile ok src/unzip/qizheng-aimi/818-6735/assets/wakeup.param
+[2016-10-17 15:36:36.368] [INFO] dateFileLog -  写入wakeupFile ok src/unzip/yidonghulian-aimi/Q30S-6735P/assets/wakeup.param
+[2016-10-17 15:36:36.376] [INFO] dateFileLog -  写入wakeupFile ok src/unzip/yitu-aimi/T6-8735P/assets/wakeup.param
+[2016-10-17 15:36:36.382] [INFO] dateFileLog -  写入wakeupFile ok src/unzip/zushihui-aimi/V3-6735/assets/wakeup.param
+[2016-10-17 15:36:50.842] [INFO] dateFileLog -  写入wakeupFile ok src/unzip/diyixianchang-aimi/D687-6735P/assets/wakeup.param
+[2016-10-17 15:36:50.856] [INFO] dateFileLog -  写入wakeupFile ok src/unzip/lintu-aimi/V9-6735/assets/wakeup.param
+[2016-10-17 15:36:50.871] [INFO] dateFileLog -  写入wakeupFile ok src/unzip/qizheng-aimi/818-6735/assets/wakeup.param
+[2016-10-17 15:36:50.883] [INFO] dateFileLog -  写入wakeupFile ok src/unzip/yidonghulian-aimi/Q30S-6735P/assets/wakeup.param
+[2016-10-17 15:36:50.895] [INFO] dateFileLog -  写入wakeupFile ok src/unzip/yitu-aimi/T6-8735P/assets/wakeup.param
+[2016-10-17 15:36:50.908] [INFO] dateFileLog -  写入wakeupFile ok src/unzip/zushihui-aimi/V3-6735/assets/wakeup.param
+[2016-10-17 15:36:52.678] [INFO] dateFileLog -  写入wakeupFile ok src/unzip/diyixianchang-aimi/D687-6735P/assets/wakeup.param
+[2016-10-17 15:36:52.683] [INFO] dateFileLog -  写入wakeupFile ok src/unzip/lintu-aimi/V9-6735/assets/wakeup.param
+[2016-10-17 15:36:52.688] [INFO] dateFileLog -  写入wakeupFile ok src/unzip/qizheng-aimi/818-6735/assets/wakeup.param
+[2016-10-17 15:36:52.694] [INFO] dateFileLog -  写入wakeupFile ok src/unzip/yidonghulian-aimi/Q30S-6735P/assets/wakeup.param
+[2016-10-17 15:36:52.699] [INFO] dateFileLog -  写入wakeupFile ok src/unzip/yitu-aimi/T6-8735P/assets/wakeup.param
+[2016-10-17 15:36:52.703] [INFO] dateFileLog -  写入wakeupFile ok src/unzip/zushihui-aimi/V3-6735/assets/wakeup.param
+[2016-10-17 16:01:51.527] [INFO] dateFileLog -  写入wakeupFile ok src/unzip/diyixianchang-aimi/D687-6735P/assets/wakeup.param
+[2016-10-17 16:01:51.534] [INFO] dateFileLog -  写入wakeupFile ok src/unzip/lintu-aimi/V9-6735/assets/wakeup.param
+[2016-10-17 16:01:51.540] [INFO] dateFileLog -  写入wakeupFile ok src/unzip/qizheng-aimi/818-6735/assets/wakeup.param
+[2016-10-17 16:01:51.549] [INFO] dateFileLog -  写入wakeupFile ok src/unzip/yidonghulian-aimi/Q30S-6735P/assets/wakeup.param
+[2016-10-17 16:01:51.561] [INFO] dateFileLog -  写入wakeupFile ok src/unzip/yitu-aimi/T6-8735P/assets/wakeup.param
+[2016-10-17 16:01:51.569] [INFO] dateFileLog -  写入wakeupFile ok src/unzip/zushihui-aimi/V3-6735/assets/wakeup.param
+[2016-10-17 16:02:07.753] [INFO] dateFileLog -  写入wakeupFile ok src/unzip/diyixianchang-aimi/D687-6735P/assets/wakeup.param
+[2016-10-17 16:02:07.763] [INFO] dateFileLog -  写入wakeupFile ok src/unzip/lintu-aimi/V9-6735/assets/wakeup.param
+[2016-10-17 16:02:07.769] [INFO] dateFileLog -  写入wakeupFile ok src/unzip/qizheng-aimi/818-6735/assets/wakeup.param
+[2016-10-17 16:02:07.773] [INFO] dateFileLog -  写入wakeupFile ok src/unzip/yidonghulian-aimi/Q30S-6735P/assets/wakeup.param
+[2016-10-17 16:02:07.780] [INFO] dateFileLog -  写入wakeupFile ok src/unzip/yitu-aimi/T6-8735P/assets/wakeup.param
+[2016-10-17 16:02:07.786] [INFO] dateFileLog -  写入wakeupFile ok src/unzip/zushihui-aimi/V3-6735/assets/wakeup.param
+[2016-10-17 16:02:26.832] [INFO] dateFileLog -  写入wakeupFile ok src/unzip/diyixianchang-aimi/D687-6735P/assets/wakeup.param
+[2016-10-17 17:11:23.982] [INFO] dateFileLog - app start
+[2016-10-17 17:11:24.063] [INFO] dateFileLog - app listening at  9990
+[2016-10-17 17:11:47.139] [INFO] dateFileLog - readFolder file src/unzip/diyixianchang-aimi/D687-6735P/assets/aios.provision
+[2016-10-17 17:11:47.139] [INFO] dateFileLog - readFolder file src/unzip/diyixianchang-aimi/D687-6735P/assets/config.properties
+[2016-10-17 17:11:47.140] [INFO] dateFileLog - readFolder file src/unzip/diyixianchang-aimi/D687-6735P/assets/wakeup.param
+[2016-10-17 17:11:47.140] [INFO] dateFileLog - readFolder file src/unzip/lintu-aimi/V9-6735/assets/aios.provision
+[2016-10-17 17:11:47.140] [INFO] dateFileLog - readFolder file src/unzip/lintu-aimi/V9-6735/assets/config.properties
+[2016-10-17 17:11:47.140] [INFO] dateFileLog - readFolder file src/unzip/lintu-aimi/V9-6735/assets/wakeup.param
+[2016-10-17 17:11:47.140] [INFO] dateFileLog - readFolder file src/unzip/qizheng-aimi/818-6735/assets/aios.provision
+[2016-10-17 17:11:47.140] [INFO] dateFileLog - readFolder file src/unzip/qizheng-aimi/818-6735/assets/config.properties
+[2016-10-17 17:11:47.140] [INFO] dateFileLog - readFolder file src/unzip/qizheng-aimi/818-6735/assets/wakeup.param
+[2016-10-17 17:11:47.141] [INFO] dateFileLog - readFolder file src/unzip/yidonghulian-aimi/Q30S-6735P/assets/aios.provision
+[2016-10-17 17:11:47.141] [INFO] dateFileLog - readFolder file src/unzip/yidonghulian-aimi/Q30S-6735P/assets/config.properties
+[2016-10-17 17:11:47.141] [INFO] dateFileLog - readFolder file src/unzip/yidonghulian-aimi/Q30S-6735P/assets/wakeup.param
+[2016-10-17 17:11:47.141] [INFO] dateFileLog - readFolder file src/unzip/yitu-aimi/T6-8735P/assets/aios.provision
+[2016-10-17 17:11:47.141] [INFO] dateFileLog - readFolder file src/unzip/yitu-aimi/T6-8735P/assets/config.properties
+[2016-10-17 17:11:47.141] [INFO] dateFileLog - readFolder file src/unzip/yitu-aimi/T6-8735P/assets/wakeup.param
+[2016-10-17 17:11:47.141] [INFO] dateFileLog - readFolder file src/unzip/zushihui-aimi/V3-6735/assets/aios.provision
+[2016-10-17 17:11:47.141] [INFO] dateFileLog - readFolder file src/unzip/zushihui-aimi/V3-6735/assets/config.properties
+[2016-10-17 17:11:47.141] [INFO] dateFileLog - readFolder file src/unzip/zushihui-aimi/V3-6735/assets/wakeup.param
+[2016-10-17 17:11:47.749] [INFO] dateFileLog - readFolder file src/unzip/diyixianchang-aimi/D687-6735P/assets/aios.provision
+[2016-10-17 17:11:47.749] [INFO] dateFileLog - readFolder file src/unzip/diyixianchang-aimi/D687-6735P/assets/config.properties
+[2016-10-17 17:11:47.749] [INFO] dateFileLog - readFolder file src/unzip/diyixianchang-aimi/D687-6735P/assets/wakeup.param
+[2016-10-17 17:11:47.749] [INFO] dateFileLog - readFolder file src/unzip/lintu-aimi/V9-6735/assets/aios.provision
+[2016-10-17 17:11:47.749] [INFO] dateFileLog - readFolder file src/unzip/lintu-aimi/V9-6735/assets/config.properties
+[2016-10-17 17:11:47.749] [INFO] dateFileLog - readFolder file src/unzip/lintu-aimi/V9-6735/assets/wakeup.param
+[2016-10-17 17:11:47.749] [INFO] dateFileLog - readFolder file src/unzip/qizheng-aimi/818-6735/assets/aios.provision
+[2016-10-17 17:11:47.749] [INFO] dateFileLog - readFolder file src/unzip/qizheng-aimi/818-6735/assets/config.properties
+[2016-10-17 17:11:47.749] [INFO] dateFileLog - readFolder file src/unzip/qizheng-aimi/818-6735/assets/wakeup.param
+[2016-10-17 17:11:47.750] [INFO] dateFileLog - readFolder file src/unzip/yidonghulian-aimi/Q30S-6735P/assets/aios.provision
+[2016-10-17 17:11:47.750] [INFO] dateFileLog - readFolder file src/unzip/yidonghulian-aimi/Q30S-6735P/assets/config.properties
+[2016-10-17 17:11:47.750] [INFO] dateFileLog - readFolder file src/unzip/yidonghulian-aimi/Q30S-6735P/assets/wakeup.param
+[2016-10-17 17:11:47.750] [INFO] dateFileLog - readFolder file src/unzip/yitu-aimi/T6-8735P/assets/aios.provision
+[2016-10-17 17:11:47.751] [INFO] dateFileLog - readFolder file src/unzip/yitu-aimi/T6-8735P/assets/config.properties
+[2016-10-17 17:11:47.751] [INFO] dateFileLog - readFolder file src/unzip/yitu-aimi/T6-8735P/assets/wakeup.param
+[2016-10-17 17:11:47.751] [INFO] dateFileLog - readFolder file src/unzip/zushihui-aimi/V3-6735/assets/aios.provision
+[2016-10-17 17:11:47.751] [INFO] dateFileLog - readFolder file src/unzip/zushihui-aimi/V3-6735/assets/config.properties
+[2016-10-17 17:11:47.751] [INFO] dateFileLog - readFolder file src/unzip/zushihui-aimi/V3-6735/assets/wakeup.param
