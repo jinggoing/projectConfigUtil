@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <meta charset="utf-8">
+
 	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
 	    <title>config Util</title>
@@ -27,9 +27,69 @@
 		    </form>
 		  </div>
 		</nav>
-		<div class="container"  style="min-width:10500px;">
+		
+		<div id="container" class="container"  style="min-width:10500px;">
+			
 			<div style="">
 			<div id="wakeup" style="float:left;" >
+				<!-- 添加唤醒词模态框 -->
+			  <div id="addTdsModal" class="modal fade bs-example-modal-sm addtds" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+			  <div class="modal-dialog modal-sm">
+			    <div class="modal-content">
+			    	<div class="modal-header">
+				        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+				        <h4 class="modal-title">批量添加唤醒词</h4>
+			        </div>
+			        <form class="form-horizontal" role="form" style="padding-top:15px">
+					  <div class="form-group">				    
+					    <div class="col-sm-11">
+					      <input type="text" class="form-control" v-model="newWord" placeholder="唤醒词">
+					    </div>
+					  </div>
+					  <div class="form-group">
+					    <div class="col-sm-11">
+					      <input type="number" class="form-control" step="0.01" min="0" max="1" v-model="newThresh"  placeholder="默认值">
+					    </div>
+					  </div>				 
+					  <div class="form-group">
+					    <div class="col-sm-offset-1 col-sm-10">
+					      <button type="button" role="button"  class="btn btn-default btn-block" v-on:click="addTds(newWord,newThresh)">确定</button>
+					    </div>
+					  </div>
+					</form>
+			    </div>
+			  </div>
+			</div>
+			<!-- 添加唤醒词模态框 end -->
+			<!-- 添加唤醒词模态框 -->
+			  <div id="addTdModal" class="modal fade bs-example-modal-sm addtd" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+			  <div class="modal-dialog modal-sm">
+			    <div class="modal-content">
+			    	<div class="modal-header">
+				        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+				        <h4 class="modal-title">添加唤醒词</h4>
+			        </div>
+			        <form class="form-horizontal" role="form" style="padding-top:15px">
+					  <div class="form-group">				    
+					    <div class="col-sm-11">
+					      <input type="text" class="form-control" v-model="newWord" placeholder="唤醒词">
+					    </div>
+					  </div>
+					  <div class="form-group">
+					    <div class="col-sm-11">
+					      <input type="number" class="form-control" step="0.01" min="0" max="1" v-model="newThresh"  placeholder="默认值">
+					    </div>
+					  </div>				 
+					  <div class="form-group">
+					    <div class="col-sm-offset-1 col-sm-10">
+					      <button type="button" role="button"  class="btn btn-default btn-block" v-on:click="addTd(newWord,newThresh)">确定</button>
+					    </div>
+					  </div>
+					</form>
+			    </div>
+			  </div>
+			</div>
+			<!-- 添加唤醒词模态框 end -->			
 			  <table class="table table-bordered table-hover table-striped">
 			  	<thead>
 			  		<tr><td>唤醒词文件</td></tr>
@@ -39,19 +99,30 @@
 			  			<td align="center">型号</td>
 			  			<td align="center" style="fixed:left">mainword</td>
 			  			<td align="center">nickname</td>
+			  			<td><button class="btn btn-info btn-xs" data-toggle="modal" data-target=".addtds" >添加一列</button></td>
 			  			<template v-for='n in items[0].wordsArr.length'>
 			  			<!-- v-on:change="check(n)" -->
-			  			<td align="center"><label> 唤醒词{{n}} <input   type="checkbox">批量修改开关 </label></td>
+			  			<td align="center">
+			  				<label> <input  v-on:change="check(n)" type="checkbox">唤醒词{{n}}  </label>
+			  				<button class="btn btn-danger btn-xs" v-on:click="deleteTds(n)" >删除此列</button>
+			  			</td>
 			  			</template>
+			  			
 			  		</tr>
 				  	<tr  v-for="(item ,index) in items">						
 				  		<td align="center">{{item.key}}</td>
 				  		<td align="center">{{item.mainword}}</td>
 				  		<td align="center">{{item.nickname}}</td>
+				  		<td></td>
 				  		<template v-model="word" v-for="(word, subindex) in item.wordsArr" >
 							<!-- <input  type="checkbox"> -->
 				  			<td><label>{{word}}</label><input  v-on:change="onchange(index,subindex,word)" v-model="item.threshArr[subindex]"/></td>
-				  		</template>				  						  	
+				  		</template>
+				  		<td>
+				  		<button class="btn btn-info btn-xs" data-toggle="modal" data-target=".addtd" v-on:click="toAddtd(index)" >添加唤醒词</button>
+				  		<button class="btn btn-danger btn-xs"  v-on:click="deleteTd(index)" > 删除最后一个</button>
+				  		</td>
+				  						  						  	
 				  	</tr>
 			    </tbody>
 			  </table>
@@ -107,8 +178,11 @@
 	    <script src="./bower_components/jquery/dist/jquery.min.js"></script>
 	    <script src="./bower_components/jquery-form/jquery.form.js"></script>
 	    <script src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+	    <script src="./bower_components/bootstrap/js/alert.js"></script>
 	    <script src="./bower_components/vue/dist/vue.min.js"></script>
 	    <script type="text/javascript">
+	    $("#container").scrollLeft();
+
 	    String.prototype.replaceAll = function(s1,s2){
 		　　return this.replace(new RegExp(s1,"gm"),s2);
 		}
@@ -228,12 +302,16 @@
 			new Vue({
 			  el: '#wakeup',
 			  data: {
-			    items: wakeupSerial
+			    items: wakeupSerial,
+			    newWord: '',
+			    newThresh : 0.01,
+			    toAddtdIndex:''
 			  },
 			  methods: {
 			    onchange: function (index,subindex,key) {
-			    console.log(event.target.value);
-			    	var checkbox = $("#wakeup table tr").eq(1).find("td").eq(subindex+3).find("input[type='checkbox']")[0];
+			    	console.log(event.target.value);
+			    	var checkbox = $("#wakeup table tr").eq(1).find("td").eq(subindex+4).find("input[type='checkbox']")[0];
+			    	console.log(checkbox);
 			    	var updateAll = checkbox==undefined? false : checkbox.checked;
 			    	var items = this.items;
 			    	if(updateAll){
@@ -268,11 +346,117 @@
 						});	
 					}	      
 			  	},
+			  	toAddtd:function(index){
+			  		this.toAddtdIndex = index;
+			  		console.log(this.toAddtdIndex);
+			  	},
+			  	addTd:function(newWord,newThresh){			  					  		
+			  		
+			  		if(newWord===''||newThresh===''){
+			  			alert('newWord newThresh 不能为空');
+			  			return false;
+			  		}
+			  		if(newThresh>1){
+			  			alert('thresh 值不能大于 1');
+			  			return false;
+			  		}
+			  		var items = this.items;		  					  		
+			  			this.items[this.toAddtdIndex].wordsArr.push(newWord);
+		    			this.items[this.toAddtdIndex].threshArr.push(newThresh);		    			
+		    			$.ajax({
+							type: "POST",
+							url:'/saveWakeupFile',
+							data:{'wakeupFile':items[this.toAddtdIndex]},
+							async: false,
+							error: function(error) {
+								console.log(error);
+							},
+							success: function(result) {
+								console.log(result);
+							}
+						});			    			
+		    		$('#addTdModal').modal('hide');
+		    		
+			  	},
+			  	addTds:function(newWord,newThresh){			  					  		
+			  		
+			  		if(newWord===''||newThresh===''){
+			  			alert('newWord newThresh 不能为空');
+			  			return false;
+			  		}
+			  		if(newThresh>1){
+			  			alert('thresh 值不能大于 1');
+			  			return false;
+			  		}
+			  		var items = this.items;
+			  		for (var i =0; i<items.length; i++) {			  					  		
+			  			this.items[i].wordsArr.splice(1, 0, newWord);
+		    			this.items[i].threshArr.splice(1, 0,newThresh);		    			
+		    			$.ajax({
+							type: "POST",
+							url:'/saveWakeupFile',
+							data:{'wakeupFile':items[i]},
+							async: false,
+							error: function(error) {
+								console.log(error);
+							},
+							success: function(result) {
+								console.log('正在更改第'+i+'个文件');
+							}
+						});			    			
+		    		}
+		    		$('#addTdsModal').modal('hide');
+		    		
+			  	},
+			  	deleteTds:function(index){
+			  		if(!confirm('确定删除该列唤醒词吗？')){
+			  			return false;
+			  		}
+			  		var items = this.items;
+			  		for (var i =0; i<items.length; i++) {
+		    			this.items[i].threshArr.splice(index-1,1);
+		    			this.items[i].wordsArr.splice(index-1,1);
+		    			$.ajax({
+							type: "POST",
+							url:'/saveWakeupFile',
+							data:{'wakeupFile':items[i]},
+							async: false,
+							error: function(error) {
+								console.log(error);
+							},
+							success: function(result) {
+								console.log('正在更改第'+i+'个文件');
+							}
+						});			    			
+		    		}
+			  	},
+			  	deleteTd:function(index){
+			  		if(!confirm('确定删除该唤醒词吗？')){
+			  			return false;
+			  		}
+	    			this.items[index].threshArr.pop();
+	    			this.items[index].wordsArr.pop();
+	    			$.ajax({
+						type: "POST",
+						url:'/saveWakeupFile',
+						data:{'wakeupFile':this.items[index]},
+						async: false,
+						error: function(error) {
+							console.log(error);
+						},
+						success: function(result) {
+							console.log(result);
+						}
+					});			    			
+			  	},
 			  	check : function(index){
 			  		var checked = event.target.checked;
 			  		var trs = $("#wakeup table tr");
-			  		console.log(index)
+			  		console.log(checked);
 			  		if(checked){
+
+			  		}
+			  		/*if(checked){
 			  			for(var i=2;i<trs.length;i++){
 			  				trs.eq(i).find("td").eq(index+2).find("input[type='checkbox']")[0].checked=true;
 			  			}	
@@ -280,7 +464,7 @@
 			  			for(var i=2;i<trs.length;i++){
 			  				trs.eq(i).find("td").eq(index+2).find("input[type='checkbox']")[0].checked=false;
 			  			}
-			  		}
+			  		}*/
 			  	}	
 			  }
 			});
@@ -291,7 +475,7 @@
 			  },
 			  methods: {
 			    onchange: function (index,tdIndex,key) {
-			    	var checkbox = $("#wakeup table tr").eq(1).find("td").eq(subindex+3).find("input[type='checkbox']")[0];
+			    	var checkbox = $("#config table tr").eq(1).find("td").eq(tdIndex).find("input[type='checkbox']")[0];
 			    	var updateAll = checkbox==undefined? false : checkbox.checked;
 			    	var items = this.items;
 			    	if(updateAll){
@@ -310,6 +494,7 @@
 								}
 							});
 			    		}
+			    		alert('批量修改成功');
 			    		//location.reload();
 			    	}else{
 				    	$.ajax({
