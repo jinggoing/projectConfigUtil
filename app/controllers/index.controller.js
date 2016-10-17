@@ -3,12 +3,14 @@
 * @Author: jinggoing
 * @Date:   2016-10-11 10:53:21
 * @Last Modified by:   jinxiong.hou
-* @Last Modified time: 2016-10-15 15:37:07
+* @Last Modified time: 2016-10-17 15:31:36
 */
 
 var multiparty = require('multiparty');
 var http = require('http');
 var util = require('util');
+var log = require('../../config/log');  
+var logger = log.logger
 var fs = require('fs');
 var iconv = require('iconv-lite');
 var unzip =require('unzip');
@@ -74,6 +76,7 @@ function dealConfigObj(configObj){
 module.exports = {
 	//上传zip文件
 	upload : function(req, res) {
+		logger.info("upload file");
 		//req.setEncoding('utf-8');
 	  if (req.url === '/upload' && req.method === 'POST') {
 	  	var count =0;
@@ -90,6 +93,7 @@ module.exports = {
 	    form.parse(req, function(err, fields, files) {
 	      var filesTmp = JSON.stringify(files,null,2);
 	      if(err){
+	      	logger.error("upload fail");
 	      	res.json({'success':false,'msg':'upload fail'});
 	        console.log('parse error: ' + err);
 	      } else {
@@ -118,6 +122,7 @@ module.exports = {
 		//unzip.extractAllTo(unzipPath, true);  
 		var unzipper = new DecompressZip(req.body.filePath);
 		unzipper.on('extract', function (log) {
+			logger.info("unzip file");
 		    console.log('Finished extracting');
 		});
 		unzipper.extract({
@@ -158,12 +163,14 @@ module.exports = {
 			if(fileExt==='.provision'){
 				provision[brand] = file;
 			}
+			logger.info("readFolder file " + file);
 		}
 		output.wakeup = wakeup;
 		output.config = dealConfigObj(config);		
 		output.provision = provision;
 		output.success = true;
 		output.msg = 'readFolder completed';
+		
 		//console.log(provision['zsh-V3-6735']);
 		res.json(output);
 	},
@@ -204,9 +211,11 @@ module.exports = {
 		
 		output.data = dataArr;
 		output.success = true;
-		output.msg = 'readFolder completed';
+		output.msg = 'outputFileContent completed';
 		//console.log(provision['zsh-V3-6735']);
+		logger.info("outputFileContent completed");
 		res.json(output);
+
 	},
 
 	readProperties:function(req, res){
@@ -241,7 +250,7 @@ module.exports = {
 	            res.json({'success':true,'msg':'zip completed',file:'configFile.zip'});
 	        });
 	    });
-		
+		logger.info("zip completed");
 	},
 
 	saveConfigFile : function(req, res){
@@ -261,10 +270,12 @@ module.exports = {
 	            console.log("fail " + err);  
 	    	}
 	        else{
+	        	logger.info(" 写入configFile ok "+filePath);
 	            console.log("写入configFile ok");  
 	            res.json({'success':true,'msg':'configFile completed'});
 	    	}
 	    });
+	    
 	},
 	saveWakeupFile : function(req,res){
 		var wakeup = req.body.wakeupFile;
@@ -285,10 +296,12 @@ module.exports = {
 	            console.log("fail " + err);  
 	    	}
 	        else{
+	        	logger.info(" 写入wakeupFile ok "+filePath);
 	            console.log("写入wakeupFile ok");  
 	            res.json({'success':true,'msg':'wakeupFile completed'});
 	    	}
 	    });
+	    
 	},
 
 	writeFile : function(req, res){
@@ -305,10 +318,11 @@ module.exports = {
 	            console.log("fail " + err);  
 	    	}
 	        else{
-	            console.log("写入文件ok");  
+	            logger.info(filePath+"写入 ok");  
 	            res.json({'success':true,'msg':'writeFile completed'});
 	    	}
-	    });  
+	    });
+
 	}
 
 }

@@ -99,9 +99,10 @@
 			  			<td align="center">型号</td>
 			  			<td align="center" style="fixed:left">mainword</td>
 			  			<td align="center">nickname</td>
-			  			<td><button class="btn btn-info btn-xs" data-toggle="modal" data-target=".addtds" >添加一列</button></td>
+			  			
 			  			<template v-for='n in items[0].wordsArr.length'>
 			  			<!-- v-on:change="check(n)" -->
+			  			<td v-if="n==2"><button class="btn btn-info btn-xs" data-toggle="modal" data-target=".addtds" >添加一列</button></td>
 			  			<td align="center">
 			  				<label> <input  v-on:change="check(n)" type="checkbox">唤醒词{{n}}  </label>
 			  				<button class="btn btn-danger btn-xs" v-on:click="deleteTds(n)" >删除此列</button>
@@ -113,8 +114,9 @@
 				  		<td align="center">{{item.key}}</td>
 				  		<td align="center">{{item.mainword}}</td>
 				  		<td align="center">{{item.nickname}}</td>
-				  		<td></td>
+				  		
 				  		<template v-model="word" v-for="(word, subindex) in item.wordsArr" >
+				  			<td v-if="subindex==1"></td> 
 							<!-- <input  type="checkbox"> -->
 				  			<td><label>{{word}}</label><input  v-on:change="onchange(index,subindex,word)" v-model="item.threshArr[subindex]"/></td>
 				  		</template>
@@ -122,7 +124,7 @@
 				  		<button class="btn btn-info btn-xs" data-toggle="modal" data-target=".addtd" v-on:click="toAddtd(index)" >添加唤醒词</button>
 				  		<button class="btn btn-danger btn-xs"  v-on:click="deleteTd(index)" > 删除最后一个</button>
 				  		</td>
-				  						  						  	
+				  				  						  	
 				  	</tr>
 			    </tbody>
 			  </table>
