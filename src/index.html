@@ -7,6 +7,7 @@
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
 	    <title>config Util</title>
         <link rel="stylesheet" type="text/css" href="./bower_components/bootstrap/dist/css/bootstrap.min.css">
+       
         <style type="text/css">
         	body{padding-top: 150px;padding-bottom: 120px;}
         	td{height: 45px;}
@@ -144,11 +145,46 @@
 				  		<td align="center">aios_secret_key</td>
 				  		<td align="center">aios_user_id</td>
 				  	</tr>
-				   <tr contenteditable="true" v-for="(item,index) in items">				    	
-				    	<td align="center"> <input v-on:change="onchange(index,0,'reversed_channel')" v-model="item.reversed_channel"/></td>
-				    	<td align="center"> <input v-on:change="onchange(index,1,'interrupt_enable')" v-model="item.interrupt_enable"/></td>
-				    	<td align="center"> <input v-on:change="onchange(index,2,'poicluster_enable')" v-model="item.poicluster_enable"/></td>
-				    	<td align="center"> <input v-on:change="onchange(index,3,'tts_audio_track_vol')" v-model="item.tts_audio_track_vol"/></td>
+				   <tr v-for="(item,index) in items">				    	
+				    	<td align="center"> 
+				    		<div class="btn-group">
+							  <button type="button" class="btn btn-primary btn-xs dropdown-toggle" data-toggle="dropdown">
+							    选择 <span class="caret"></span>
+							  </button>
+							  <ul class="dropdown-menu" role="menu">
+							    <li v-on:click="onchangebool(index,0,'reversed_channel','true')"><a>true</a></li>
+							    <li v-on:click="onchangebool(index,0,'reversed_channel','false')"><a>false</a></li>		   
+							  </ul>
+							</div>
+					    	<input readonly="readonly" v-model="item.reversed_channel"/>
+				    	</td>
+				    	<td align="center">
+							<div class="btn-group">
+							  <button type="button" class="btn btn-primary btn-xs dropdown-toggle" data-toggle="dropdown">
+							    选择 <span class="caret"></span>
+							  </button>
+							  <ul class="dropdown-menu" role="menu">
+							    <li v-on:click="onchangebool(index,1,'interrupt_enable','true')"><a>true</a></li>
+							    <li v-on:click="onchangebool(index,1,'interrupt_enable','false')"><a>false</a></li>		   
+							  </ul>
+							</div>
+				    		<input readonly="readonly" v-model="item.interrupt_enable"/>
+				    	</td>
+				    	<td align="center">
+				    		<div class="btn-group">
+							  <button type="button" class="btn btn-primary btn-xs dropdown-toggle" data-toggle="dropdown">
+							    选择 <span class="caret"></span>
+							  </button>
+							  <ul class="dropdown-menu" role="menu">
+							    <li v-on:click="onchangebool(index,2,'poicluster_enable','true')"><a>true</a></li>
+							    <li v-on:click="onchangebool(index,2,'poicluster_enable','false')"><a>false</a></li>		   
+							  </ul>
+							</div>
+				    		<input readonly="readonly" v-model="item.poicluster_enable"/>
+				    	</td>
+				    	<td align="center"> 
+				    		<input type="number" step="0.01" v-on:change="onchange(index,3,'tts_audio_track_vol')" v-model="item.tts_audio_track_vol"/>
+				    	</td>
 				    	<td align="center"> <input class="longInput" v-on:change="onchange(index,4,'aios_app_key')" v-model="item.aios_app_key"/></td>
 				    	<td align="center"> <input class="longInput" v-on:change="onchange(index,5,'aios_secret_key')" v-model="item.aios_secret_key"/></td>
 				    	<td align="center"> <input class="longInput" v-on:change="onchange(index,6,'aios_user_id')" v-model="item.aios_user_id"/></td>
@@ -183,8 +219,6 @@
 	    <script src="./bower_components/bootstrap/js/alert.js"></script>
 	    <script src="./bower_components/vue/dist/vue.min.js"></script>
 	    <script type="text/javascript">
-	    $("#container").scrollLeft();
-
 	    String.prototype.replaceAll = function(s1,s2){
 		　　return this.replace(new RegExp(s1,"gm"),s2);
 		}
@@ -208,7 +242,7 @@
 				data:{'filePath':filePath},
 				async: false,
 				error: function(request) {
-					alert("Connection error");
+					alert("unzip error");
 				},
 				success: function(result) {					
 					if(result.success){
@@ -311,9 +345,25 @@
 			  },
 			  methods: {
 			    onchange: function (index,subindex,key) {
-			    	console.log(event.target.value);
+			    	var val =event.target.value;
+			    	if(isNaN(val)||val>1){
+			    		alert('请输入小于1的数字');
+			    		location.reload();
+			    		return false;
+			    	}
+			    	if(val.toString().split(".")[1].length>3){
+			    		alert('输入的小数点尾数不能超过3位');
+			    		location.reload();
+			    		return false;
+			    	}
+			    	if(!confirm('确定修改'+key+'的值为'+val+'吗？')){			    		
+			  			location.reload();
+			  			return false;
+			  		}
+
+			    	console.log(this.items[index].threshArr[subindex]);
 			    	var checkbox = $("#wakeup table tr").eq(1).find("td").eq(subindex+4).find("input[type='checkbox']")[0];
-			    	console.log(checkbox);
+			    	
 			    	var updateAll = checkbox==undefined? false : checkbox.checked;
 			    	var items = this.items;
 			    	if(updateAll){
@@ -343,7 +393,8 @@
 								console.log(error);
 							},
 							success: function(result) {
-								alert(result.msg);
+								console.log(result);
+								//alert(result.msg);
 							}
 						});	
 					}	      
@@ -477,6 +528,21 @@
 			  },
 			  methods: {
 			    onchange: function (index,tdIndex,key) {
+			    	var val =event.target.value;
+			    	if(tdIndex==3&&isNaN(val)){
+			    		alert('请输入数字');
+			    		location.reload();
+			    		return false;
+			    	}
+			    	if(tdIndex==3&&val.toString().split(".")[1].length>3){
+			    		alert('输入的小数点尾数不能超过3位');
+			    		location.reload();
+			    		return false;
+			    	}
+			    	if(!confirm('确定修改'+key+'的值为'+val+'吗？')){			    		
+			  			location.reload();
+			  			return false;
+			  		}
 			    	var checkbox = $("#config table tr").eq(1).find("td").eq(tdIndex).find("input[type='checkbox']")[0];
 			    	var updateAll = checkbox==undefined? false : checkbox.checked;
 			    	var items = this.items;
@@ -512,8 +578,51 @@
 							}
 						});
 					}			      
+			  	},
+			  	onchangebool :function(index,tdIndex,key,val){
+			  		var checkbox = $("#config table tr").eq(1).find("td").eq(tdIndex).find("input[type='checkbox']")[0];
+			    	var updateAll = checkbox==undefined? false : checkbox.checked;
+			    	var items = this.items;
+			    	if(items[index][key]===val){
+			    		return false;
+			    	}
+
+			    	if(updateAll){
+			    		for (var i =0; i<items.length; i++) {
+			    			this.items[i][key] = val;
+			    			$.ajax({
+								type: "POST",
+								url:'/saveConfigFile',
+								data:{'configFile':this.items[i]},
+								async: false,
+								error: function(error) {
+									console.log(error);
+								},
+								success: function(result) {
+									console.log('正在更改第'+i+'个文件');
+								}
+							});
+			    		}
+			    		alert('批量修改成功');
+			    		//location.reload();
+			    	}else{
+			    		this.items[index][key] = val;
+				    	$.ajax({
+							type: "POST",
+							url:'/saveConfigFile',
+							data:{'configFile':this.items[index]},// 你的formid
+							async: false,
+							error: function(error) {
+								console.log(error);
+							},
+							success: function(result) {
+								alert(result.msg);
+							}
+						});
+					}			      			  	
 			  	}	
-			  }
+			  },
+			  
 			});
 
 			new Vue({
